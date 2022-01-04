@@ -106,6 +106,14 @@ py_vector.dot(torch_vector)
 >>> 0.0
 ```
 
+```java
+class Test{
+  public void main(){
+    System.out.println("Hello, wolrd!");
+  }
+}
+```
+
 ---
 ## UML 다이어그램: 순서도, 흐름도 등을 표현할 때 유용하다. 
 
