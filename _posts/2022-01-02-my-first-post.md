@@ -3,7 +3,7 @@ title: "[Markdown] Syntax"
 excerpt: "Markdown으로 블로그를 작성하기 위해 Markdown의 기본 문법들을 정리했다. "
 
 categories:
-  - Blog
+  - Note
 
 tags:
   - [Blog, jekyll, Markdown]
@@ -11,10 +11,10 @@ tags:
 toc: true
 toc_sticky: true
  
-last_modified_at: 2022-01-02
+#last_modified_at: 2022-01-02
 
 
-date: 2022-01-01
+date: 2022-01-02
 
 ---
 

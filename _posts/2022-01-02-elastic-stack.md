@@ -17,21 +17,24 @@ last_modified_at: 2022-01-02
 date: 2022-01-02
 
 ---
-6233-4073
 # Elastic Stack 소개
-시스템 로그의 양이 많아지고 관리해야 할 서버가 많아지게 되면 서버 별로 Health Check 및 Application들의 로그 관리/분석이 어렵다.
+시스템을 개발/운영하다보면 다양한 유형의 로그 정보들을 기반으로 업무를 진행하게 된다.  
 
-그래서 흩어져있는 로그 Data들을 Logstash를 사용하여 수집하고 ElasticSearch에 Data를 저장하고 Kibana로 분석 및 시각화를 할 수 있다.
-위와 같이 여러 서버의 다양한 로그들을 하나의 ES(Elasticsearch)에서 관리하게 되면 유지보수하기가 훨씬 용이해진다. 
+관리해야 할 서버가 많아지게 되면서 동시에 로그의 데이터가 많아지게 되어 서버 별로 시스템 Health Check 및 Application들의 로그 관리/분석이 어렵다.
+
+그래서 흩어져있는 로그 Data들을 Logstash를 수집하여 Elasticsearch에 Data를 저장하고 Kibana로 분석 및 시각화를 할 수 있다.
+위와 같이 여러 서버의 다양한 로그들을 하나의 ES(Elasticsearch)에서 관리하게 되면 Data 관리 유지보수와 분석이 훨씬 용이해진다. 
 
 회사 시스템의 로그 관리 개선이 필요하여 Elastic Stack Setup 관련된 정보들을 정리하려고 한다. 
 
 구축 전에 간단히 개념을 학습하고 다음과 같이 몇가지 의문점이 생겼다...
 
 1. 클러스터 구성 시 하나의 서버에 여러 Node를 실행하는 것이 좋을까?  
-   
+   고가용성 서버에 여러 Node를 띄우는 것보다 mideum spec에 서버를 2대이상 두어 서버당 1개의 ES Node를 실행하는 것이 좋다고 한다.
+   하나의 Node가 워낙 무겁다보니.. 여러개 띄우면 JVM에서 메모리 관리 및 경합이 발생할 수도 있다고 한다. 
+
 2. 사용시 사내 Data가 Elastic에 노출이 되진 않을까?  
-   Kibana Setting에 Cluster Data 수집 허용이 default value가 true로 되어 있는데 다음 설정으로 수집을 못하게 할 수 있다. 수집되는 Data가 외부에서 수집되지 않아야 한다고 하면 이 설정은 필수인 것 같다. 
+   Kibana Setting에 Cluster Data 수집 허용이 default value가 true로 되어 있는데 다음 설정으로 수집을 못하게 할 수 있다. 수집되는 Data가 외부에서 수집되지 않아야 한다고 하면 이 설정은 필수이다. 
     ```
     kibana.yml
     # configure Telemetry
@@ -127,7 +130,7 @@ date: 2022-01-02
 3. pipeline1.conf   
    개인적으로 위 pipeline 설정하는데 삽질이 많았다...
    
-   Kibana/Logstash/Elasticsearch의 Timezone 정보가 달라 Date Type의 정합성이 보장되지 않은 것을 보정하느라 오래걸렸다...ㅜㅜ 
+   Kibana/Logstash/Elasticsearch의 Timezone 정보가 달라 Date Type의 정합성이 보장되지 않은 것을 보정하느라 오래걸렸다.
 
    Logstash에서 indexname지정해주는 날짜는 Ruby를 사용해서 @timestamp의 날짜 정보를 parsing했다. 
    그 외에는 timezone을 default값 UTC에서 Asia/Seoul로 변경했다.
@@ -186,7 +189,7 @@ date: 2022-01-02
       path.config: "config/pipeline1.conf"
     ```
 
-# Filebeat
+## Filebeat
 1. Command
     ```
     #pipeline 실행     
