@@ -17,8 +17,8 @@ last_modified_at: 2022-01-02
 date: 2022-01-02
 
 ---
-
-# Elastic Stack 구축하려고 하는 이유
+6233-4073
+# Elastic Stack 소개
 시스템 로그의 양이 많아지고 관리해야 할 서버가 많아지게 되면 서버 별로 Health Check 및 Application들의 로그 관리/분석이 어렵다.
 
 그래서 흩어져있는 로그 Data들을 Logstash를 사용하여 수집하고 ElasticSearch에 Data를 저장하고 Kibana로 분석 및 시각화를 할 수 있다.
@@ -27,10 +27,11 @@ date: 2022-01-02
 회사 시스템의 로그 관리 개선이 필요하여 Elastic Stack Setup 관련된 정보들을 정리하려고 한다. 
 
 구축 전에 간단히 개념을 학습하고 다음과 같이 몇가지 의문점이 생겼다...
+
 1. 클러스터 구성 시 하나의 서버에 여러 Node를 실행하는 것이 좋을까?  
    
 2. 사용시 사내 Data가 Elastic에 노출이 되진 않을까?  
-   Kibana Setting에 Cluster Data 수집 허용이 default value가 true로 되어 있는데 다음 설정으로 수집을 못하게 할 수 있다. 사내에서 사용한다고 하면 이 설정은 필수인 것 같다. 
+   Kibana Setting에 Cluster Data 수집 허용이 default value가 true로 되어 있는데 다음 설정으로 수집을 못하게 할 수 있다. 수집되는 Data가 외부에서 수집되지 않아야 한다고 하면 이 설정은 필수인 것 같다. 
     ```
     kibana.yml
     # configure Telemetry
@@ -38,14 +39,16 @@ date: 2022-01-02
     #telemetry.optIn: false
     telemetry.enabled: false
     ```
-3. 한 개의 Index에 Shard 개수와 최대 몇GB까지 관리하는 것이 적정한지? 
+3. 한 개의 Index에 Shard 개수와 최대 몇GB까지 관리하는 것이 적정한지?    
+  1개의 Shard에 최대 50GB까지 관리하는 것이 적정 크기로 권고하고 있다. 
+  그리고 Index에 최대 할당하는 Shard개수는 ES Node 개수만큼하는 것이 좋다고 하는데 부하 테스트를 통해 성능 점검을 해보면서 관련한 글들은 조금 더 찾아봐야겠다..
+
 
 ## Elasticsearch
 
-
 ---
 1. elasticsearch.yml    
-   ### 아래 기능을 추가하면 계정 관리가 가능해진다.
+   아래 기능을 추가하면 계정 관리가 가능해진다.
     ```
     # 보안 기능 
     xpack.security.enabled: true   
@@ -102,7 +105,7 @@ date: 2022-01-02
 
 ## Logstash
 ---
-### 하나의 Logstash 인스턴스로 다양한 Input을 Handling하기 위해 Multi Pipeline으로 설정하려고 한다. 
+ 하나의 Logstash 인스턴스로 다양한 Input을 Handling하기 위해 Multi Pipeline으로 설정하려고 한다. 
 
 1. Command
     ```
