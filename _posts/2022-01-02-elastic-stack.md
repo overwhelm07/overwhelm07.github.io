@@ -1,4 +1,5 @@
 ---
+layout: data
 title: "Elastic Stack 구축"
 excerpt: "ELK 오픈소스 프로그램을 활용하여 Logging Data Cluster를 구축하려고 한다."
 
@@ -7,14 +8,6 @@ categories:
 
 tags:
   - [Devlopment, Elastic, BigData]
-
-toc: true
-toc_sticky: true
- 
-last_modified_at: 2022-01-02
-
-
-date: 2022-01-02
 
 ---
 # Elastic Stack 소개
