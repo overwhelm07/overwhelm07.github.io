@@ -1,16 +1,14 @@
 ---
-title: "C++ 프로그래밍"
+title: "Java 프로그래밍"
 layout: archive
-permalink: categories/cpp
+permalink: categories/java
 author_profile: true
 sidebar_main: true
 ---
 
-testsetset
-asdiofjsadiof
-ddiodidi
+testtest
+testset
 
-
-
-{% assign posts = site.categories.Cpp %}
+{% assign posts = site.categories.Java %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
+
