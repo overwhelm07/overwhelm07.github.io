@@ -10,6 +10,7 @@ published: true
 toc: true
 paramlink: /data/
 entries_layout: grid
+breadcrumb: true
 ---
 # Elastic Stack 소개
 시스템을 개발/운영하다보면 다양한 유형의 로그 정보들을 기반으로 업무를 진행하게 된다.  
