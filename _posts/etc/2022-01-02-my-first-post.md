@@ -2,8 +2,8 @@
 layout: page
 title: "[Markdown] Syntax"
 excerpt: "Markdown으로 블로그를 작성하기 위해 Markdown의 기본 문법들을 정리했다. "
-categories: Note
-tags: [Blog, jekyll, Markdown]
+categories: ETC
+tags: [ETC, Blog, Markdown]
 comments: true
 published: true 
  
