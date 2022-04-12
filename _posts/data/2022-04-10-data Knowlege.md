@@ -17,7 +17,7 @@ breadcrumb: true
 ## CAP Theorem
 CAP Theorem은 분산시스템에서 일관성(Consistency), 가용성(Availability), 분할 용인(Partition tolerance)이라는 세 가지 조건을 모두 만족할 수 없다는 정리로, 세 가지 중 두 가지를 택하라는 것으로 많이 알려졌다. 
 
-<img src="http://eincs.com/images/2013/06/truth-of-cap-theorem-diagram.png" width="500" height="300"> 
+<img src="../../img\truth-of-cap-theorem-diagram.png" width="500" height="300"> 
 
 1. 일관성: 모든 노드들은 같은 시간에 동일한 항목에 대하여 같은 내용의 데이터가 사용자에게 보여준다.
 1. 가용성: 모든 사용자들이 읽기 및 쓰기가 가능해야 하며, 몇몇 노드의 장애 시에도 다른 노드에 영향을 미치면 안된다. 즉, 모든 요청은 정상 응답을 받는다. 
