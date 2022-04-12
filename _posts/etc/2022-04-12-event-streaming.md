@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "[Markdown] Syntax"
-excerpt: "Markdown으로 블로그를 작성하기 위해 Markdown의 기본 문법들을 정리했다. "
+title: "분산 처리를 알아보자"
+excerpt: "요즘 대세인 분산 처리에 대해 알아봅시다"
 categories: ETC
 tags: [Kafaka, 분산]
 comments: true

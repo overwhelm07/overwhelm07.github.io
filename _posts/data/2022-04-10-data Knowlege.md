@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: "Data 기본 지식"
 discription: "Data Knowledge"
 #hedline: 
