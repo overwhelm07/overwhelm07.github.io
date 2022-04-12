@@ -5,12 +5,12 @@ discription: "Data Knowledge"
 #hedline: 
 categories: Data
 tags: [Data]
-comments: true
-published: true 
-toc: true
+#comments: true
+#published: true 
+#toc: true
 paramlink: /data/
-entries_layout: grid
-breadcrumb: true
+#entries_layout: grid
+#breadcrumb: true
 ---
 # Data 공부 
 ## Data Aggregation
